@@ -112,6 +112,8 @@ This project uses multiple YOLOv8 models, each trained locally on an RTX 3050 La
   <br><br>
 
   **All the models can be found here: [Models](https://huggingface.co/Haytham-Ziani/OCR_Project/tree/main)**
+  <br><br>
+  *Make sure to create models directory, download the pt files and store them there*
 
 ## 🚀 Usage
 
