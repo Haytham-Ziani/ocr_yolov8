@@ -42,10 +42,12 @@ conda activate <env-name>
 
 ```bash
 pip install -r requirements.txt
+
 # If any module not found errors arise, please install them using: pip install <module-name>
+# If you don't have a GPU, you must change the torch line to the CPU version: torch==2.7.1+cpu
 ```
 
-#### Make sure the results directory is created in the root. It will be used to store logs, annotated frames and video output.
+#### *Make sure to create the following directories: results, data, models.*
 
 ## 📊 Dataset
 
