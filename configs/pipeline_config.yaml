@@ -1,0 +1,98 @@
+# === Pipeline Configuration ===
+pipeline:
+  name: "license_plate_recognition"
+  device: "cuda"  # cuda, cpu, mps
+  batch_size: 1
+
+# === Model Weights ===
+models:
+  car_detector_path: models/car_detector.pt
+  lp_detector_path: models/lp_detector.pt
+  char_segmentor_path: models/char_segmentor.pt
+
+# === Confidence Thresholds ===
+detection:
+  car_confidence_threshold: 0.3
+  lp_confidence_threshold: 0.4
+  char_confidence_threshold: 0.5
+  nms_threshold: 0.4  # Non-max suppression
+
+# === Model Input Sizes ===
+input_sizes:
+  car_detector: [640, 640]
+  lp_detector: [416, 416]
+  char_segmentor: [224, 224]
+
+# === Tracking Parameters ===
+tracking:
+  max_age: 30
+  min_hits: 3
+  iou_threshold: 0.3
+  enable_tracking: true
+
+# === Speed Estimation ===
+speed:
+  fps: 30
+  pixel_to_meter: 0.2  # Note: inverse of pixel_to_meter_ratio 0.05
+  speed_threshold: 100
+
+# === Input / Output Paths ===
+output:
+  results_dir: results
+  save_violations: true
+  save_video: true
+
+paths:
+  input_video: data/video_input.mp4
+  input_images: data/input_images/
+  output_images: results/annotated_frames/
+  tracking_logs: results/logs/tracking_log.csv
+  detection_logs: results/logs/detection_log.json
+
+# === Display / Saving Options ===
+display:
+  show_live: true
+  save_output_video: true
+  save_annotated_images: true
+  save_crops: false
+  visualization_thickness: 2
+  font_scale: 0.7
+
+# === License Plate Characters (Arabic/English) ===
+id2char:
+  0: '0'
+  1: '1'
+  2: '2'
+  3: '3'
+  4: '4'
+  5: '5'
+  6: '6'
+  7: '7'
+  8: '8'
+  9: '9'
+  10: 'أ'
+  11: 'ب'
+  12: 'و'
+  13: 'د'
+  14: 'ھ'
+  15: 'W' # New Cars
+
+# === Processing Options ===
+processing:
+  max_detections_per_class: 100
+  enable_letterbox_resize: true
+  normalize_images: true
+  flip_test: false
+
+# === Performance Settings ===
+performance:
+  enable_half_precision: false
+  enable_tensorrt: false
+  warm_up_iterations: 5
+  benchmark_mode: false
+
+# === Logging ===
+logging:
+  level: "INFO"
+  log_file: "logs/pipeline.log"
+  enable_timing: true

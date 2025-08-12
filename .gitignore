@@ -1,0 +1,70 @@
+# Python cache & build artifacts
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+*.egg-info/
+*.egg
+build/
+dist/
+
+# Virtual environments
+.env
+.venv
+venv/
+env/
+
+# Logs & temp files
+*.log
+*.tmp
+
+# IDE / Editor configs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Machine Learning model weights (handled externally via Hugging Face)
+*.pt
+*.pth
+*.onnx
+*.h5
+*.ckpt
+*.tflite
+*.weights
+
+# Datasets (handled externally via link)
+datasets/
+data/
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
+*.csv
+*.jsonl
+*.pickle
+*.pkl
+*.npz
+*.npy
+
+# Media (videos/images not needed for code repo)
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.jpg
+*.jpeg
+*.png
+*.bmp
+*.gif
+
+# YOLO / training outputs
+runs/
+results/
+output/
+labels.cache
